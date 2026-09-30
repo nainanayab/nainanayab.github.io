@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naina Nayab Portfolio</title>
+<meta name="description" content="Naina Nayab, Software Engineering graduate building AI-powered web applications and growing in data science and machine learning.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800\&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#150B1C;--bg2:#1D1027;--card:#261433;--line:#3B2451;--ink:#F8EAF4;--mut:#BCA4C8;--a:#F472B6;--b:#C4A1FF}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font:400 16px/1.7 Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--b);outline-offset:3px}
+.wrap{max-width:1100px;margin:auto;padding:0 22px}
+section{padding:90px 0}
+.alt{background:var(--bg2)}
+.grad{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{color:var(--b);font-weight:600;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+h2{font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;margin:6px 0 40px}
+/* nav */
+header{position:fixed;inset:0 0 auto;z-index:20;background:rgba(21,11,28,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.2rem}
+.menu{display:flex;gap:26px;list-style:none}
+.menu a{color:var(--mut);font-weight:500;font-size:.95rem;transition:.2s}
+.menu a:hover{color:var(--ink)}
+#tg{display:none;background:none;border:0;color:var(--ink);font-size:1.6rem;cursor:pointer}
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;text-align:center;padding-top:110px;background:radial-gradient(circle at 15% 20%,rgba(244,114,182,.18),transparent 45%),radial-gradient(circle at 85% 75%,rgba(196,161,255,.18),transparent 45%)}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--card);padding:6px 16px;border-radius:99px;font-size:.88rem;color:var(--mut)}
+.badge i{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 4px rgba(52,211,153,.2)}
+.hero h1{font-size:clamp(3rem,9vw,6rem);font-weight:800;line-height:1.02;margin:22px 0 18px}
+.hero p{max-width:640px;margin:0 auto;color:var(--mut);font-size:1.15rem}
+.hero p b{color:var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:30px}
+.btn{padding:12px 24px;border-radius:10px;font-weight:600;border:1px solid var(--line);transition:.2s;display:inline-block}
+.btn:hover{transform:translateY(-2px);border-color:var(--b)}
+.btn.p{background:linear-gradient(90deg,var(--a),var(--b));border:0;color:#1A0B1E}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+.stat{box-shadow:0 6px 20px rgba(0,0,0,.28);background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.stat b{display:block;font-size:2rem;font-weight:800}
+.stat span{color:var(--mut);font-size:.9rem}
+/* about */
+.about{display:grid;grid-template-columns:340px 1fr;gap:48px;align-items:start}
+.pic{aspect-ratio:1;border-radius:24px;background:linear-gradient(135deg,var(--a),var(--b));display:grid;place-items:center;font-size:6rem;font-weight:800;color:#1A0B1E;box-shadow:0 20px 50px rgba(244,114,182,.3)}
+.bars{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.bars h4{margin-bottom:14px}
+.bar{margin-bottom:12px;font-size:.9rem}
+.bar div{display:flex;justify-content:space-between;color:var(--mut);margin-bottom:5px}
+.bar u{display:block;height:6px;border-radius:9px;background:var(--line);overflow:hidden;text-decoration:none}
+.bar u i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--a),var(--b));transition:width 1.2s ease}
+.about p{color:var(--mut);margin-bottom:16px}
+.about p b{color:var(--ink)}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0}
+.info div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:.92rem}
+.info small{display:block;color:var(--b);font-weight:600}
+.counts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+.counts div{text-align:center;padding:16px;border-radius:12px;border:1px dashed var(--line)}
+.counts b{font-size:1.8rem;display:block}
+.counts span{color:var(--mut);font-size:.85rem}
+/* skills */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:.25s;box-shadow:0 6px 20px rgba(0,0,0,.28)}
+.card:hover{border-color:var(--a);transform:translateY(-4px)}
+.card h3{font-size:1.15rem;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:rgba(244,114,182,.12);border:1px solid rgba(244,114,182,.35);border-radius:99px;padding:3px 13px;font-size:.85rem}
+/* timeline */
+.tl{position:relative;padding-left:34px;border-left:2px solid var(--line);margin-left:8px}
+.job{position:relative;margin-bottom:34px}
+.job::before{content:"";position:absolute;left:-43px;top:8px;width:16px;height:16px;border-radius:50%;background:var(--bg2);border:3px solid var(--b)}
+.date{color:var(--b);font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+.job h3{font-size:1.3rem;margin:4px 0 0}
+.job .org{color:var(--mut);margin-bottom:10px}
+.job ul{padding-left:1.1rem;color:var(--mut)}
+.job li{margin:4px 0}
+/* projects */
+.proj{display:flex;flex-direction:column}
+.proj .n{color:var(--a);font-weight:700;font-size:.9rem;margin-bottom:8px}
+.proj h3{font-size:1.3rem;margin-bottom:10px}
+.proj p{color:var(--mut);flex:1;margin-bottom:16px;font-size:.96rem}
+.proj a.l{color:var(--b);font-weight:600;margin-top:16px}
+.more{text-align:center;margin-top:34px;color:var(--mut)}
+/* awards + edu */
+.aw .ic{font-size:2rem;margin-bottom:8px}
+.aw h3{font-size:1.05rem;margin-bottom:4px}
+.aw p{color:var(--mut);font-size:.9rem}
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.edu .card{display:flex;flex-direction:column;gap:6px;padding:30px}
+.div1{align-self:flex-start;margin:8px 0 6px;background:linear-gradient(90deg,var(--a),var(--b));color:#1A0B1E;font-weight:700;font-size:.85rem;padding:4px 14px;border-radius:99px}
+@media(max-width:820px){.edu{grid-template-columns:1fr}}
+.edu h3{font-size:1.2rem}
+.edu p{color:var(--mut)}
+/* contact */
+.contact{text-align:center}
+.contact p{color:var(--mut);max-width:520px;margin:0 auto 22px}
+.mail{font-size:clamp(1.1rem,3vw,1.7rem);font-weight:700}
+.soc{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+footer{padding:26px;text-align:center;color:var(--mut);border-top:1px solid var(--line);font-size:.9rem}
+@media(max-width:820px){
+#tg{display:block}
+.menu{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg);padding:16px 22px;gap:14px;border-bottom:1px solid var(--line)}
+.menu.open{display:flex}
+.stats{grid-template-columns:1fr 1fr}
+.about{grid-template-columns:1fr}.pic{max-width:260px}
+section{padding:64px 0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+.grid3.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pgrid .proj{padding:30px}
+@media(max-width:820px){.grid3.pgrid{grid-template-columns:1fr}}
+/* animations */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:1}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);opacity:.45;z-index:0;pointer-events:none}
+.hero::before{width:340px;height:340px;background:#a3306f;top:8%;left:-80px}
+.hero::after{width:300px;height:300px;background:#5b34b0;bottom:6%;right:-70px}
+.menu a{position:relative}
+.menu a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;background:linear-gradient(90deg,var(--a),var(--b));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.menu a:hover::after,.menu a.on::after{transform:scaleX(1)}
+.menu a.on{color:var(--ink)}
+.btn:active{transform:scale(.97)}
+.card:hover{box-shadow:0 14px 34px rgba(244,114,182,.2)}
+.job::before{transition:transform .3s,background .3s}
+.job:hover::before{transform:scale(1.3);background:var(--b)}
+@media(prefers-reduced-motion:no-preference){
+.hero::before{animation:fl 9s ease-in-out infinite alternate}
+.hero::after{animation:fl 11s ease-in-out infinite alternate-reverse}
+@keyframes fl{to{transform:translate(50px,-40px) scale(1.15)}}
+.hero h1 .grad{background-size:200% 100%;animation:shift 6s linear infinite}
+@keyframes shift{to{background-position:200% 0}}
+.badge,.hero h1,.hero p,.hero .btns,.stats{animation:up .8s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation-delay:.1s}.hero p{animation-delay:.22s}.hero .btns{animation-delay:.34s}.stats{animation-delay:.46s}
+@keyframes up{from{opacity:0;transform:translateY(26px)}}
+.badge i{animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(52,211,153,0)}}
+.pic{animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+html.js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+html.js .rv.in{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="#top">Naina <span class="grad">Nayab</span></a>
+<button id="tg" aria-label="Toggle menu" aria-expanded="false">☰</button>
+<ul class="menu" id="menu">
+<li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li><li><a href="#awards">Awards</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+</ul>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+<span class="badge"><i></i>Available for opportunities</span>
+<h1>Naina <span class="grad">Nayab</span></h1>
+<p>Software Engineering graduate building <b>AI-powered web applications</b> and growing into <b>data analysis, machine learning and real-world data science</b>.</p>
+<div class="btns">
+<a class="btn p" href="Naina_Nayab_CV.pdf" download>Download CV</a>
+<a class="btn" href="https://www.linkedin.com/in/nainanayab">LinkedIn</a>
+<a class="btn" href="https://github.com/nainanayab">GitHub</a>
+</div>
+<div class="stats">
+<div class="stat"><b>3</b><span>Roles & Internships</span></div>
+<div class="stat"><b>4</b><span>Projects Built</span></div>
+<div class="stat"><b>5</b><span>Honors & Awards</span></div>
+<div class="stat"><b>2026</b><span>BSSE Graduate</span></div>
+</div>
+</div></section>
+
+<section id="about" class="alt"><div class="wrap">
+<span class="tag">About Me</span><h2>Who I Am</h2>
+<div class="about">
+<div>
+<div class="pic" role="img" aria-label="Naina Nayab monogram">N</div>
+<div class="bars"><h4>Core Proficiency</h4>
+<div class="bar"><div><span>Web Application Development</span><span>80%</span></div><u><i data-w="80"></i></u></div>
+<div class="bar"><div><span>Python & FastAPI</span><span>75%</span></div><u><i data-w="75"></i></u></div>
+<div class="bar"><div><span>SQL & Databases</span><span>75%</span></div><u><i data-w="75"></i></u></div>
+<div class="bar"><div><span>Data Analysis</span><span>65%</span></div><u><i data-w="65"></i></u></div>
+<div class="bar"><div><span>AI & Machine Learning</span><span>55%</span></div><u><i data-w="55"></i></u></div>
+</div>
+</div>
+<div>
+<p>Hi, I'm <b>Naina Nayab</b>, a Software Engineering graduate with hands-on experience in practical technology projects and a growing interest in <b>data analysis, machine learning and Artificial Intelligence</b>.</p>
+<p>I enjoy building user-focused applications and working with AI-enabled project workflows. Alongside my technical work, I bring <b>leadership, event management, communication and teamwork</b> experience.</p>
+<div class="info">
+<div><small>Profile</small>Software Engineer</div>
+<div><small>Degree</small>BS Software Engineering</div>
+<div><small>Location</small>Bahawalpur, Pakistan</div>
+<div><small>Tools</small>Python, FastAPI, SQL, Git</div>
+<div><small>Focus</small>AI, Data & Web Apps</div>
+<div><small>Interests</small>Teaching, Cricket, Events</div>
+</div>
+<div class="btns" style="justify-content:flex-start;margin:0 0 24px">
+<a class="btn p" href="Naina_Nayab_CV.pdf" download>Download CV</a>
+<a class="btn" href="https://www.linkedin.com/in/nainanayab">LinkedIn</a>
+</div>
+<div class="counts">
+<div><b data-c="5">0</b><span>Achievements</span></div>
+<div><b data-c="4">0</b><span>Projects Built</span></div>
+<div><b data-c="3">0</b><span>Roles Held</span></div>
+</div>
+</div>
+</div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+<span class="tag">Technical Stack</span><h2>Skills & Tools</h2>
+<div class="grid3">
+<div class="card"><h3>💻 Development</h3><div class="chips"><span>Web Application Development</span><span>Next.js</span><span>Tailwind CSS</span><span>TypeScript</span><span>Expo / React Native</span><span>REST API Integration</span><span>Python</span><span>FastAPI</span></div></div>
+<div class="card"><h3>🗄️ Data & Databases</h3><div class="chips"><span>SQL</span><span>Database Management</span><span>Data Management</span><span>Data Analysis</span></div></div>
+<div class="card"><h3>🤖 AI & ML</h3><div class="chips"><span>AI & Machine Learning</span><span>AI Integration</span></div></div>
+<div class="card"><h3>🛠️ Tools</h3><div class="chips"><span>Git</span><span>GitHub</span><span>Render</span><span>IT Support & Troubleshooting</span></div></div>
+<div class="card"><h3>💡 Professional</h3><div class="chips"><span>Problem-Solving</span><span>Analytical Thinking</span><span>Effective Communication</span><span>Teamwork</span><span>Attention to Detail</span><span>Time Management</span></div></div>
+</div>
+</div></section>
+
+<section id="experience" class="alt"><div class="wrap">
+<span class="tag">Work History</span><h2>Experience</h2>
+<div class="tl">
+<div class="job"><div class="date">July 2026 — Sep 2026</div><h3>Software Development Intern</h3><div class="org">TDCP — Bahawalpur</div>
+<ul><li>Contributed to tourism-related digital initiatives and technology-based solutions promoting tourism in Bahawalpur.</li><li>Developed the BWP AI Travel Agent, a booking application for the Double-Decker Bus reservation service.</li><li>Contributed to the development and planning of an AI-powered tourism platform focused on improving the tourist experience.</li></ul></div>
+<div class="job"><div class="date">Aug 2025 — May 2026</div><h3>Course Tutor</h3><div class="org">Al Suffah Science School — Bahawalpur</div>
+<ul><li>Facilitated hands-on learning sessions and supported students in improving their practical and academic skills.</li><li>Simplified technical and complex concepts to improve student understanding and performance.</li></ul></div>
+<div class="job"><div class="date">Aug 2024 — Dec 2024</div><h3>Management Intern</h3><div class="org">Swift Ops Care — USA (Remote)</div>
+<ul><li>Supported project management activities and contributed to the timely completion of assigned initiatives.</li><li>Analyzed support desk data to identify useful insights for customer support improvement.</li></ul></div>
+</div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+<span class="tag">What I've Built</span><h2>Projects</h2>
+<div class="grid3 pgrid">
+<article class="card proj"><div class="n">01 // TDCP BAHAWALPUR</div><h3>BWP AI Travel Agent</h3>
+<p>A responsive booking web app for TDCP Bahawalpur's Double-Decker Bus service, covering routes, schedules, booking and status lookup. Features an interactive upper and lower deck seat map with availability, temporary holds and expiry handling, plus payment-proof upload and admin verification, all connected to a FastAPI backend.</p>
+<div class="chips"><span>Next.js</span><span>Tailwind CSS</span><span>FastAPI</span><span>REST APIs</span><span>AI-assisted support</span></div></article>
+<article class="card proj"><div class="n">02 // PRESENT</div><h3>AI Tourism Intelligent Platform</h3>
+<p>Building the frontend and backend of an AI-powered travel planning app, with workflows and interfaces for destination exploration and trip planning, delivered as a working demo/MVP.</p>
+<div class="chips"><span>Python</span><span>FastAPI</span><span>REST APIs</span><span>AI Integration</span></div></article>
+<article class="card proj"><div class="n">03 // EXPO APP</div><h3>Crop AI Frontend</h3>
+<p>The frontend application for an AI-powered crop analysis and assistance system, built as an Expo project with file-based routing and TypeScript.</p>
+<div class="chips"><span>Expo</span><span>React Native</span><span>TypeScript</span><span>AI</span></div>
+<a class="l" href="https://github.com/nainanayab/Crop-AI-Frontend">GitHub Repository →</a></article>
+<article class="card proj"><div class="n">04 // JULY 2026</div><h3>Video Downloader Application</h3>
+<p>A complete video downloading web app, frontend and backend. Designed the interface, built the core backend workflow, tested it locally and deployed it on Render.</p>
+<div class="chips"><span>Python</span><span>FastAPI</span><span>Web Development</span><span>Render</span></div>
+<a class="l" href="https://github.com/nainanayab">GitHub Repository →</a></article>
+</div>
+<p class="more">More projects coming soon. <a class="grad" href="https://github.com/nainanayab">View all on GitHub →</a></p>
+</div></section>
+
+<section id="awards" class="alt"><div class="wrap">
+<span class="tag">Recognition</span><h2>Honors & Awards</h2>
+<div class="grid3">
+<div class="card aw"><div class="ic">🧠</div><h3>"Brain of Bahawalpur" Title Winner</h3><p>Punjab College Bahawalpur</p></div>
+<div class="card aw"><div class="ic">🥇</div><h3>Gold Medal</h3><p>Commissioner Cup, Bahawalpur</p></div>
+<div class="card aw"><div class="ic">🥇</div><h3>Gold Medal</h3><p>Winner, South Punjab Cricket League</p></div>
+<div class="card aw"><div class="ic">🥈</div><h3>Silver Medal</h3><p>Southern Punjab Women League</p></div>
+<div class="card aw"><div class="ic">🥉</div><h3>Bronze Medal</h3><p>Maryam Nawaz Cricket Tournament</p></div>
+</div>
+</div></section>
+
+<section id="education"><div class="wrap">
+<span class="tag">Academic Background</span><h2>Education</h2>
+<div class="edu">
+<div class="card"><div class="date">2022 — 2026</div><h3>BS Software Engineering</h3><p>The Islamia University of Bahawalpur · Pakistan</p>
+<span class="div1">🎓 First Division</span>
+<div class="chips"><span>Software Development</span><span>Database Systems</span><span>Business & Entrepreneurship</span><span>Business Process Management</span></div></div>
+<div class="card"><div class="date">Intermediate</div><h3>FSc Pre-Medical</h3><p>The Leaders College · Bahawalpur</p>
+<span class="div1">🎓 First Division</span>
+<div class="chips"><span>Biology</span><span>Chemistry</span><span>Physics</span></div></div>
+</div>
+</div></section>
+
+<section id="contact" class="alt contact"><div class="wrap">
+<span class="tag">Get in Touch</span><h2>Let's Build Together</h2>
+<p>Open to internships, junior roles and projects in software, data and AI.</p>
+<a class="mail grad" href="mailto:nainanayab11@gmail.com">nainanayab11@gmail.com</a>
+<p style="margin-top:14px">📍 Bahawalpur, Pakistan   📞 +92 329 6842331</p>
+<div class="soc">
+<a class="btn" href="https://www.linkedin.com/in/nainanayab">LinkedIn</a>
+<a class="btn" href="https://github.com/nainanayab">GitHub</a>
+<a class="btn" href="tel:+923296842331">Call</a>
+<a class="btn p" href="Naina_Nayab_CV.pdf" download>Download CV</a>
+</div>
+</div></section>
+</main>
+<footer>© 2026 Naina Nayab · Software Engineer · Bahawalpur · Pakistan</footer>
+
+<script>
+const tg=document.getElementById('tg'),mn=document.getElementById('menu');
+tg.onclick=()=>{const o=mn.classList.toggle('open');tg.setAttribute('aria-expanded',o)};
+mn.querySelectorAll('a').forEach(a=>a.onclick=()=>{mn.classList.remove('open');tg.setAttribute('aria-expanded',false)});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
+e.target.querySelectorAll('[data-w]').forEach(i=>i.style.width=i.dataset.w+'%');
+e.target.querySelectorAll('[data-c]').forEach(c=>{const t=+c.dataset.c;let n=0;const s=setInterval(()=>{c.textContent=++n;if(n>=t)clearInterval(s)},250)});
+io.unobserve(e.target)}),{threshold:.3});
+document.querySelectorAll('.about').forEach(s=>io.observe(s));
+
+document.documentElement.classList.add('js');
+document.querySelectorAll('.stat,.card,.job,.bars,.info div,.counts div,.tag,section h2').forEach((el,i)=>{el.classList.add('rv');el.style.transitionDelay=(i%4)*90+'ms'});
+const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>rv.observe(el));
+const ml=[...document.querySelectorAll('.menu a')];
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)ml.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section[id]').forEach(x=>spy.observe(x));
+</script>
+</body>
+</html> i want to push this on git hub and llive this
